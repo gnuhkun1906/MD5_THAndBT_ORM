@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/song/formCreate">Create Song</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>KindOfMusic</th>
+        <th>File</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="song:${listSong}">
+        <td th:text="${song.getId()}"></td>
+        <td th:text="${song.getName()}"></td>
+        <td th:text="${song.getKindOfMusic()}"></td>
+        <td>
+            <audio controls>
+                <source th:src="@{'/audio/'+${song.getFile()}}" type="">
+            </audio>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

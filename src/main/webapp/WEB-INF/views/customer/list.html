@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo-Thymeleaf</title>
+</head>
+<body>
+<a href="/picture/findAll">Picture Of the Day</a>
+<a href="/song/findAll">Song</a>
+<a href="/create"> Create Customer</a>
+<table border="1" style="width: 80%;margin: 30px auto">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Detail</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="cus:${customer}">
+        <td th:text="${cus.getId()}"></td>
+        <td th:text="${cus.getName()}"></td>
+        <td th:text="${cus.getAddress()}"></td>
+        <td th:text="${cus.getEmail()}"></td>
+        <td>
+            <a th:href="${'/detail/'+cus.getId()}">Detail</a>
+        </td>
+        <td>
+            <a th:href="${'/edit/'+cus.getId()}">Edit</a>
+        </td>
+        <td>
+            <a th:href="${'/delete/'+cus.getId()}">Delete</a>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

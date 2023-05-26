@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/picture/form">Create Feedback</a>
+<table border="1">
+    <thead>
+    <tr>
+<!--        <th>Id</th>-->
+<!--        <th>Date</th>-->
+        <th>Evaluate</th>
+        <th>Date</th>
+        <th>Feedback</th>
+        <th>Like</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list:${listFeedback}">
+        <td th:text="${list.getEvaluate()}"></td>
+        <td th:text="${date}"></td>
+        <td th:text="${list.getFeedback()}"></td>
+        <td th:text="${list.getLikes()+'likes'}"></td>
+        <td>
+            <a th:href="@{'/picture/like/'+${list.getId()}}">
+
+            <button>like</button>
+
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

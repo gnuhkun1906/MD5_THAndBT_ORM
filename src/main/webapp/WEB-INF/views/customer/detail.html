@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo-Thymeleaf</title>
+</head>
+<body>
+<a href="/"> Back</a>
+<table border="1" style="width: 80%;margin: 30px auto">
+  <tr>
+    <th>STT</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Email</th>
+
+  </tr>
+  <tr th:object="${detail}">
+    <td th:text="${detail.getId()}"></td>
+    <td th:text="${detail.getName()}"></td>
+    <td th:text="${detail.getAddress()}"></td>
+    <td th:text="${detail.getEmail()}"></td>
+  </tr>
+</table>
+</body>
+</html>
